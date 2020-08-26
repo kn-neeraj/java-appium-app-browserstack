@@ -37,7 +37,8 @@ public class BrowserStackIOS {
     	// Initialise the remote Webdriver using BrowserStack remote URL
     	// and desired capabilities defined above
         IOSDriver<IOSElement> driver = new IOSDriver<IOSElement>(
-        		new URL("http://hub-cloud.browserstack.com/wd/hub"), caps);
+        		new URL("http://hub-cloud.browserstack.com/wd/hub"), capabilities);
+        
 
         // Test case for the BrowserStack sample iOS app. 
         // If you have uploaded your app, update the test case here. 
@@ -55,6 +56,7 @@ public class BrowserStackIOS {
         else
             assert(false);  
     
+        
         // Invoke driver.quit() after the test is done to indicate that the test is completed.
         driver.quit();
     }

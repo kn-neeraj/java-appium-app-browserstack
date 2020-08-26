@@ -6,7 +6,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry excluding="**" kind="src" output="target/classes" path="ios">
+	<classpathentry including="**/*.java" kind="src" output="target/classes" path="ios">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
