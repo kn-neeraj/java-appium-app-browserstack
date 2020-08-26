@@ -1,5 +1,6 @@
 import java.net.URL;
 import java.util.List;
+import java.util.function.Function;
 import java.net.MalformedURLException;
 
 import io.appium.java_client.MobileBy;
@@ -8,6 +9,7 @@ import io.appium.java_client.android.AndroidElement;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BrowserStackAndroid {
@@ -21,13 +23,14 @@ public class BrowserStackAndroid {
         capabilities.setCapability("device", "Samsung Galaxy S7");
         capabilities.setCapability("app", "bs://<hashed app-id>");
 
-        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("https://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
+       
+        AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://"+userName+":"+accessKey+"@hub.browserstack.com/wd/hub"), capabilities);
 
         AndroidElement searchElement = (AndroidElement) new WebDriverWait(driver, 30).until(
             ExpectedConditions.elementToBeClickable(MobileBy.AccessibilityId("Search Wikipedia")));
         searchElement.click();
-        AndroidElement insertTextElement = (AndroidElement) new WebDriverWait(driver, 30).until(
-            ExpectedConditions.elementToBeClickable(MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
+		AndroidElement insertTextElement = (AndroidElement) new WebDriverWait(driver, 30).until(
+             ExpectedConditions.elementToBeClickable(MobileBy.id("org.wikipedia.alpha:id/search_src_text")));
         insertTextElement.sendKeys("BrowserStack");
         Thread.sleep(5000);
 
